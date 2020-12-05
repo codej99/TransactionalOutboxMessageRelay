@@ -1,0 +1,11 @@
+{
+  "ENV": "local",
+  "REGION": "ap-northeast-2",
+  "KAFKA_BROKER": "127.0.0.1:9092,127.0.0.1:9093,127.0.0.1:9094",
+  "KAFKA_TOPIC": "sampleTopic",
+  "DB_HOST": "127.0.0.1",
+  "DB_PORT": 3306,
+  "DB_USER": "root",
+  "DB_PASSWD": "password",
+  "DB_NAME": "outbox"
+}

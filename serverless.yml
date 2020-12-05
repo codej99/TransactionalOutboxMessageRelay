@@ -1,0 +1,42 @@
+service: lambda-aurora-serverless-message-relay
+frameworkVersion: '2'
+
+custom:
+  prune:
+    automatic: true
+    number: 10
+  env: ${file(./env/${opt:stage,'local'}.json)}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-northeast-2
+  profile: kwtoon
+  memorySize: 128
+  timeout: 60
+  role: arn:aws:iam::593352196761:role/lambda-nosql-role-abel-test
+  vpc:
+    securityGroupIds:
+      - sg-086e68b94ce101089
+    subnetIds:
+      - subnet-01b6c111289000eae
+      - subnet-0272bfa78f04f7fec
+      - subnet-0e4081c5e80388360
+      - subnet-03b5f703505ad2d63
+  environment:
+    ENV: ${self:custom.env.ENV}
+    REGION: ${self:custom.env.REGION}
+    KAFKA_BROKER: ${self:custom.env.KAFKA_BROKER}
+    KAFKA_TOPIC: ${self:custom.env.KAFKA_TOPIC}
+    DB_HOST: ${self:custom.env.DB_HOST}
+    DB_PORT: ${self:custom.env.DB_PORT}
+    DB_USER: ${self:custom.env.DB_USER}
+    DB_PASSWD: ${self:custom.env.DB_PASSWD}
+    DB_NAME: ${self:custom.env.DB_NAME}
+
+functions:
+  main:
+    handler: handler.main
+
+plugins:
+  - serverless-prune-plugin

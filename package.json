@@ -1,0 +1,27 @@
+{
+  "name": "true",
+  "version": "1.0.0",
+  "description": "aurora serverlss outbox table migration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kakao-webtoon/lambda-aurora-serverless-message-relay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kakao-webtoon/lambda-aurora-serverless-message-relay/issues"
+  },
+  "homepage": "https://github.com/kakao-webtoon/lambda-aurora-serverless-message-relay#readme",
+  "dependencies": {
+    "aws-sdk": "^2.802.0",
+    "kafka-node": "^5.0.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "serverless-prune-plugin": "^1.4.3"
+  }
+}
